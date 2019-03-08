@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,UAAW;EACT,UAAU,ECHL,OAAO;EDIZ,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;EACT,UAAU,EAAE,KAAK",
+"sources": ["../scss/components/_body.scss","../scss/components/_global.scss"],
+"names": [],
+"file": "main.css"
+}
