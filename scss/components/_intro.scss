@@ -4,14 +4,25 @@
   @keyframes fadeIntro {
     0%, 12.5% {
       background: $main;
+      border-color: transparent;
     }
     100% {
       background: darken($main, 5%);
+      border-color: darken($main, 7%);
     }
   }
-  animation: fadeIntro 4s 1;
+  animation: fadeIntro $fade 1;
   background: darken($main, 5%);
+  border-bottom: 4px darken($main, 7%) solid;
   padding: 10px 0;
+
+  @media (min-width: 550px) {
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
 
   .icon {
     display: flex;
@@ -24,10 +35,10 @@
           opacity: 0;
         }
         100% {
-          opacity: 100%;
+          opacity: 1;
         }
       }
-      animation: imgFadeIntro 4s 1;
+      animation: imgFadeIntro $fade 1;
 
       $size: 200px;
 
@@ -55,10 +66,10 @@
         opacity: 0;
       }
       100% {
-        opacity: 100%;
+        opacity: 1;
       }
     }
-    animation: h1FadeIntro 4s 1;
+    animation: h1FadeIntro $fade 1;
   }
 
   h2 {
@@ -67,10 +78,10 @@
         opacity: 0;
       }
       100% {
-        opacity: 100%;
+        opacity: 1;
       }
     }
-    animation: h2FadeIntro 4s 1;
+    animation: h2FadeIntro $fade 1;
   }
 
   h3 {
@@ -79,9 +90,9 @@
         opacity: 0;
       }
       100% {
-        opacity: 100%;
+        opacity: 1;
       }
     }
-    animation: h3FadeIntro 4s 1;
+    animation: h3FadeIntro $fade 1;
   }
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Exo");
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:400");
 html {
   font-size: 50%; }
 
@@ -12,11 +12,7 @@ html, body {
   margin: 3rem auto;
   max-width: 1280px;
   color: #efefef;
-  font-family: 'Exo', sans-serif; }
-  .container .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap; }
+  font-family: "Titillium Web", sans-serif; }
 
 .accent {
   color: #2e90ff; }
@@ -35,9 +31,11 @@ html, body {
 a {
   color: #2e90ff;
   text-decoration: none;
-  transition: color .2s; }
-  a:hover, a:focus {
+  transition: color 0.2s; }
+  a:hover[href], a:focus[href] {
     color: #0069e1; }
+  a:hover:not([href]), a:focus:not([href]) {
+    color: #2e90ff; }
 
 .fa, .fab, .fal, .far, .fas {
   width: 35px;
@@ -46,29 +44,72 @@ a {
   .fa::before, .fab::before, .fal::before, .far::before, .fas::before {
     margin: 0 auto; }
 
-.card {
-  display: inline-block;
-  margin: 0 auto;
-  padding: 10px 30px;
-  border-radius: 5px;
-  background: #43464b;
-  box-shadow: 4px 4px #3e4145; }
+.projects {
+  animation: projectsFade 3s 1; }
+  @media (min-width: 550px) {
+    .projects .row:not(:first-of-type) .column, .projects .row:not(:first-of-type) .columns {
+      margin-top: 4%; } }
+@keyframes projectsFade {
+  0%, 75% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+  .projects .card {
+    animation: cardFade 3s 1;
+    display: block;
+    margin: 5px 10px;
+    padding: 20px 30px;
+    background: #43464b;
+    box-shadow: 4px 4px #3e4145; }
+@keyframes cardFade {
+  0%, 75% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+    .projects .card a {
+      padding: 4px 12px;
+      border-radius: 2px;
+      font-size: 1.5em;
+      color: #4f5358;
+      background: #2e90ff;
+      transition: background 0.2s, color 0.2s; }
+      .projects .card a::after {
+        content: ">";
+        font-size: 1.3em;
+        line-height: calc(1 / 1.3);
+        margin-left: 0.3em;
+        font-weight: 400;
+        display: inline-block;
+        transition: margin-left 0.2s; }
+      .projects .card a:hover, .projects .card a:focus {
+        color: #efefef;
+        background: #0069e1; }
+        .projects .card a:hover::after, .projects .card a:focus::after {
+          margin-left: 0.6em; }
 
 .intro {
-  animation: fadeIntro 4s 1;
+  animation: fadeIntro 3s 1;
   background: #43464b;
+  border-bottom: 4px #3e4145 solid;
   padding: 10px 0; }
 @keyframes fadeIntro {
   0%, 12.5% {
-    background: #4f5358; }
+    background: #4f5358;
+    border-color: transparent; }
   100% {
-    background: #43464b; } }
+    background: #43464b;
+    border-color: #3e4145; } }
+  @media (min-width: 550px) {
+    .intro .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap; } }
   .intro .icon {
     display: flex;
     justify-content: center;
     align-items: center; }
     .intro .icon img {
-      animation: imgFadeIntro 4s 1;
+      animation: imgFadeIntro 3s 1;
       border-radius: 45%;
       transition: border-radius .5s;
       border: 4px solid #2e90ff;
@@ -82,29 +123,29 @@ a {
   0%, 37.5% {
     opacity: 0; }
   100% {
-    opacity: 100%; } }
+    opacity: 1; } }
       .intro .icon img:hover {
         border-radius: 10%; }
   .intro h1 {
-    animation: h1FadeIntro 4s 1; }
+    animation: h1FadeIntro 3s 1; }
 @keyframes h1FadeIntro {
   0%, 25% {
     opacity: 0; }
   100% {
-    opacity: 100%; } }
+    opacity: 1; } }
   .intro h2 {
-    animation: h2FadeIntro 4s 1; }
+    animation: h2FadeIntro 3s 1; }
 @keyframes h2FadeIntro {
   0%, 50% {
     opacity: 0; }
   100% {
-    opacity: 100%; } }
+    opacity: 1; } }
   .intro h3 {
-    animation: h3FadeIntro 4s 1; }
+    animation: h3FadeIntro 3s 1; }
 @keyframes h3FadeIntro {
   0%, 62.5% {
     opacity: 0; }
   100% {
-    opacity: 100%; } }
+    opacity: 1; } }
 
 /*# sourceMappingURL=main.css.map */

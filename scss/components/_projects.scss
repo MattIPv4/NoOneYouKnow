@@ -1,0 +1,67 @@
+@import "global";
+
+.projects {
+  @media (min-width: 550px) {
+    .row:not(:first-of-type) {
+      .column, .columns {
+        margin-top: 4%;
+      }
+    }
+  }
+
+  @keyframes projectsFade {
+    0%, 75% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  animation: projectsFade $fade 1;
+
+  .card {
+    @keyframes cardFade {
+      0%, 75% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    animation: cardFade $fade 1;
+
+    display: block;
+    margin: 5px 10px;
+    padding: 20px 30px;
+    background: darken($main, 5%);
+    box-shadow: 4px 4px darken($main, 7%);
+
+    a {
+      padding: 4px 12px;
+      border-radius: 2px;
+      font-size: 1.5em;
+      color: $main;
+      background: $accent;
+      transition: background $transition, color $transition;
+
+      &::after {
+        content: ">";
+        font-size: 1.3em;
+        line-height: calc(1 / 1.3);
+        margin-left: 0.3em;
+        font-weight: 400;
+        display: inline-block;
+        transition: margin-left $transition;
+      }
+
+      &:hover, &:focus {
+        color: $text;
+        background: darken($accent, 15%);
+
+        &::after {
+          margin-left: 0.6em;
+        }
+      }
+    }
+  }
+}

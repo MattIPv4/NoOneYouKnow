@@ -1,5 +1,5 @@
 @import "global";
-@import url('https://fonts.googleapis.com/css?family=Exo');
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:400");
 
 html {
   font-size: 50%;
@@ -16,13 +16,7 @@ html, body {
   margin: 3rem auto;
   max-width: 1280px;
   color: $text;
-  font-family: 'Exo', sans-serif;
-
-  .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
+  font-family: "Titillium Web", sans-serif;
 }
 
 .accent {
@@ -49,10 +43,15 @@ html, body {
 a {
   color: $accent;
   text-decoration: none;
-  transition: color .2s;
+  transition: color $transition;
 
   &:hover, &:focus {
-    color: darken($accent, 15%);
+    &[href] {
+      color: darken($accent, 15%);
+    }
+    &:not([href]) {
+      color: $accent;
+    }
   }
 }
 
