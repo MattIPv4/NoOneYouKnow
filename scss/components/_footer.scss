@@ -1,0 +1,24 @@
+@import "global";
+
+.footer {
+  @keyframes fadeFooter {
+    0%, 87.5% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  animation: fadeFooter $fade 1;
+  background: darken($main, 5%);
+
+  .container {
+    margin: 0 auto;
+
+    p {
+      margin: 0;
+      padding: 0.75em 0;
+      font-size: 1.1em;
+    }
+  }
+}

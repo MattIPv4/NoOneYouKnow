@@ -12,6 +12,11 @@ html, body {
   min-height: 100vh;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   margin: 3rem auto;
   max-width: 1280px;
@@ -49,18 +54,9 @@ a {
     &[href] {
       color: darken($accent, 15%);
     }
+
     &:not([href]) {
       color: $accent;
     }
-  }
-}
-
-.fa, .fab, .fal, .far, .fas {
-  width: 35px;
-  display: inline-flex;
-  justify-content: center;
-
-  &::before {
-    margin: 0 auto;
   }
 }

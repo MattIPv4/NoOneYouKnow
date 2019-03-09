@@ -93,4 +93,14 @@
     }
     animation: h3FadeIntro $fade 1;
   }
+
+  .fa, .fab, .fal, .far, .fas {
+    width: 35px;
+    display: inline-flex;
+    justify-content: center;
+
+    &::before {
+      margin: 0 auto;
+    }
+  }
 }

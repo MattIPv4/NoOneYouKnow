@@ -1,6 +1,8 @@
 @import "global";
 
 .projects {
+  flex-grow: 1;
+
   @media (min-width: 550px) {
     .row:not(:first-of-type) {
       .column, .columns {
