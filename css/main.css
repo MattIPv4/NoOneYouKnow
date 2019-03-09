@@ -67,21 +67,25 @@ a {
   100% {
     opacity: 1; } }
     .projects .card .image {
+      display: block;
       height: 100px;
       margin: -20px -30px 15px -30px;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 0;
-      box-shadow: inset 0 0 15px 2px rgba(0, 0, 0, 0.5); }
-    .projects .card a {
+      box-shadow: inset 0 0 15px 2px rgba(0, 0, 0, 0.5);
+      transition: box-shadow 0.2s; }
+    .projects .card a.image:hover, .projects .card a.image:focus {
+      box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.8); }
+    .projects .card a:not(.image) {
       padding: 4px 12px;
       border-radius: 2px;
       font-size: 1.5em;
       color: #4f5358;
       background: #2e90ff;
       transition: background 0.2s, color 0.2s; }
-      .projects .card a::after {
+      .projects .card a:not(.image)::after {
         content: ">";
         font-size: 1.3em;
         line-height: calc(1 / 1.3);
@@ -89,10 +93,10 @@ a {
         font-weight: 400;
         display: inline-block;
         transition: margin-left 0.2s; }
-      .projects .card a:hover, .projects .card a:focus {
+      .projects .card a:not(.image):hover, .projects .card a:not(.image):focus {
         color: #efefef;
         background: #0069e1; }
-        .projects .card a:hover::after, .projects .card a:focus::after {
+        .projects .card a:not(.image):hover::after, .projects .card a:not(.image):focus::after {
           margin-left: 0.6em; }
 
 .intro {

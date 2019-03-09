@@ -4,7 +4,14 @@ function generateCard(image, title, info, link) {
 
     // If image, create the cover image
     if (typeof image === "string" && image.length) {
-        var cover = document.createElement("div");
+        // If link, make cover a link too
+        if (typeof link === "string" && link.length) {
+            var cover = document.createElement("a");
+            cover.target = "_blank";
+            cover.href = link.toString();
+        } else {
+            var cover = document.createElement("div");
+        }
         cover.className = "image";
         cover.style.backgroundImage = "url(\"" + image + "\")";
         card.appendChild(cover);
