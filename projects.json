@@ -1,0 +1,22 @@
+[
+  {
+    "image": "img/icon.png",
+    "title": "This is a project",
+    "info": "with an image provided",
+    "link": "#"
+  },
+  {
+    "title": "This is a project",
+    "info": "with no image but info",
+    "link": "#"
+  },
+  {
+    "title": "No project info",
+    "link": "#"
+  },
+  {
+    "image": "img/icon.png",
+    "title": "Another project",
+    "info": "that has no link"
+  }
+]

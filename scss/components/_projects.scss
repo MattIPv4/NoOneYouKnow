@@ -36,6 +36,16 @@
     background: darken($main, 5%);
     box-shadow: 4px 4px darken($main, 7%);
 
+    .image {
+      height: 100px;
+      margin: -20px -30px 15px -30px; // opposite of card padding (excl bottom, which is fixed at 15px)
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 0;
+      box-shadow: inset 0 0 15px 2px rgba(0,0,0,0.5);
+    }
+
     a {
       padding: 4px 12px;
       border-radius: 2px;

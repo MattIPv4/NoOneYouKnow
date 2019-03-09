@@ -66,6 +66,14 @@ a {
     opacity: 0; }
   100% {
     opacity: 1; } }
+    .projects .card .image {
+      height: 100px;
+      margin: -20px -30px 15px -30px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 0;
+      box-shadow: inset 0 0 15px 2px rgba(0, 0, 0, 0.5); }
     .projects .card a {
       padding: 4px 12px;
       border-radius: 2px;

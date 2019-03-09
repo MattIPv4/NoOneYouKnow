@@ -1,22 +1,49 @@
-function generateCard(title, info, link) {
-    var h4 = document.createElement("h4");
-    h4.innerText = title.toString();
-    h4.appendChild(document.createElement("br"));
-
-    var small = document.createElement("small");
-    small.innerText = info.toString();
-    h4.appendChild(small);
-
-    var a = document.createElement("a");
-    a.innerText = "See more";
-    a.target = "_blank";
-    a.href = link.toString();
-
+function generateCard(image, title, info, link) {
     var card = document.createElement("div");
     card.className = "card";
-    card.appendChild(h4);
-    card.appendChild(a);
 
+    // If image, create the cover image
+    if (typeof image === "string" && image.length) {
+        var cover = document.createElement("div");
+        cover.className = "image";
+        cover.style.backgroundImage = "url(\"" + image + "\")";
+        card.appendChild(cover);
+    }
+
+    // If title or info, create h4
+    if ((typeof title === "string" && title.length) || (typeof info === "string" && info.length)) {
+        var h4 = document.createElement("h4");
+
+        // If title, add text
+        if (typeof title === "string" && title.length) {
+            h4.innerText = title.toString();
+            // If title and info, add br
+            if (typeof info === "string" && info.length) {
+                h4.appendChild(document.createElement("br"));
+            }
+        }
+
+        // If info, add small
+        if (typeof info === "string" && info.length) {
+            var small = document.createElement("small");
+            small.innerText = info.toString();
+            h4.appendChild(small);
+        }
+
+        // Save to card
+        card.appendChild(h4);
+    }
+
+    // If link, create a
+    if (typeof link === "string" && link.length) {
+        var a = document.createElement("a");
+        a.innerText = "See more";
+        a.target = "_blank";
+        a.href = link.toString();
+        card.appendChild(a);
+    }
+
+    // Save card to column and return
     var column = document.createElement("div");
     column.className = "three columns";
     column.appendChild(card);
@@ -43,9 +70,36 @@ function renderCards(cards) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var cards = [];
-    for (var i = 0; i < 10; i++) {
-        cards.push(generateCard("Project title", "Some project info", ""));
-    }
-    renderCards(cards);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            // Parse & validate
+            if (!this.responseText || !this.responseText.length) return console.error("[Projects] Failed to fetch JSON");
+            try {
+                var projects = JSON.parse(this.responseText);
+            } catch (e) {
+                return console.error("[Projects] Failed to parse JSON");
+            }
+            if (!projects) return console.warn("[Projects] Parsed JSON empty");
+            if (!Array.isArray(projects)) return console.error("[Projects] Expecting array, got " + typeof projects);
+
+            // Generate
+            var cards = [];
+            for (var i = 0; i < projects.length; i++) {
+                if (typeof projects[i] !== "object") {
+                    console.warn("[Projects] [" + i.toString() + "] Expecting object, got " + typeof projects[i]);
+                    continue;
+                }
+                cards.push(generateCard(
+                    projects[i].image,
+                    projects[i].title,
+                    projects[i].info,
+                    projects[i].link
+                ));
+            }
+            renderCards(cards);
+        }
+    };
+    xmlhttp.open("GET", "projects.json", true);
+    xmlhttp.send();
 });
