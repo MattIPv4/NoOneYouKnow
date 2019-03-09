@@ -49,10 +49,8 @@
       border-top-color: darken($accent, 15%);
       border-left-color: darken($accent, 15%);
 
-      max-width: $size;
+      max-width: 100%;
       width: $size;
-      max-height: $size;
-      height: $size;
 
       &:hover {
         border-radius: 10%;
