@@ -1,4 +1,4 @@
-function generateCard(image, title, info, link) {
+function generateCard(image, title, info, link, linkLabel) {
     var card = document.createElement("div");
     card.className = "card";
 
@@ -33,7 +33,7 @@ function generateCard(image, title, info, link) {
         // If info, add small
         if (typeof info === "string" && info.length) {
             var small = document.createElement("small");
-            small.innerText = info.toString();
+            small.innerHTML = info.toString(); // Use innerHTML to allow custom HTML info
             h4.appendChild(small);
         }
 
@@ -44,7 +44,7 @@ function generateCard(image, title, info, link) {
     // If link, create a
     if (typeof link === "string" && link.length) {
         var a = document.createElement("a");
-        a.innerText = "See more";
+        a.innerText = (typeof linkLabel === "string" && linkLabel.length ? linkLabel : "See more");
         a.target = "_blank";
         a.href = link.toString();
         card.appendChild(a);
@@ -101,7 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     projects[i].image,
                     projects[i].title,
                     projects[i].info,
-                    projects[i].link
+                    projects[i].link,
+                    projects[i].linkLabel
                 ));
             }
             renderCards(cards);

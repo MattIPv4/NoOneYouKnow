@@ -18,5 +18,11 @@
     "image": "img/icon.png",
     "title": "Another project",
     "info": "that has no link"
+  },
+  {
+    "title": "Project title",
+    "info": "with a custom link label",
+    "link": "#",
+    "linkLabel": "View code"
   }
 ]
