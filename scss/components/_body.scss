@@ -60,3 +60,20 @@ a {
     }
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $accent;
+  border-radius: calc(10px / 2);
+
+  &:hover {
+    background: darken($accent, 15%);
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: darken($main, 5%);
+}
